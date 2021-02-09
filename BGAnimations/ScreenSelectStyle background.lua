@@ -42,7 +42,7 @@ t[#t+1] = Def.ActorFrame{
 
 t[#t+1] = Def.ActorFrame{
   LoadActor("_panel_texture/versus.txt")..{
-    InitCommand=cmd(z,-500;Center;spin;effectmagnitude,90,0,90;zoom,5;);
+    InitCommand=cmd(z,-500;Center;spin;effectmagnitude,90,0,90;zoom,5;diffuse,color(1,1,1,1));
   };
 };
 

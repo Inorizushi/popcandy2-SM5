@@ -45,7 +45,7 @@ t[#t+1] = Def.ActorFrame{
 
 t[#t+1] = Def.ActorFrame{
   LoadActor("../_popcandymodel/popcandy_green.txt")..{
-    InitCommand=cmd(z,-500;Center;zoom,8.0;spin;effectmagnitude,0,75,0;);
+    InitCommand=cmd(z,-500;Center;zoom,8.0;spin;effectmagnitude,0,75,0);
   };
   LoadActor("../_object1model/object1_green.txt")..{
     InitCommand=cmd(xy,SCREEN_LEFT+64,SCREEN_TOP+64;zoom,4.0;spin;effectmagnitude,-75,0,-75;);

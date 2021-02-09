@@ -44,7 +44,6 @@ t[#t+1] = Def.ActorFrame{
 	Def.Sprite{
 		InitCommand=cmd(Center;scaletoclipped,SCREEN_WIDTH,SCREEN_HEIGHT);
 		OnCommand=cmd(sleep,2.9;diffuse,color("0,0,0,1"));
-    BeginCommand=cmd(playcommand,"Set");
 		SetCommand=function(self)
 			local path = "ScreenStageInformation decorations/back/"
 			if sStage == "Stage_Endless" then
@@ -56,6 +55,7 @@ t[#t+1] = Def.ActorFrame{
 			else
 				return
 			end;
+			self:scaletoclipped(SCREEN_WIDTH,SCREEN_HEIGHT)
 		end;
 	};
 };
@@ -75,15 +75,16 @@ t[#t+1] = Def.ActorFrame{
   Def.Sprite{
     InitCommand=cmd(Center;setsize,640,480);
     BeginCommand=cmd(playcommand,"Set");
-    SetCommand=function(self)
-      local song = GAMESTATE:GetCurrentSong();
-			if song then
-      	if song:HasBackground() == true then
-        	self:LoadFromSongBackground(song)
-      	else
-        	self:Load(THEME:GetPathG("","Common fallback background"));
-      	end;
-			end;
+	SetCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong();
+		if song then
+      		if song:HasBackground() == true then
+        		self:LoadFromSongBackground(song)
+      		else
+        		self:Load(THEME:GetPathG("","Common fallback background"));
+      		end;
+		end;
+		self:scaletoclipped(640,480)
     end;
   };
 	LoadActor(THEME:GetPathB("","_starmodel/star_"..StageStar[sStage]))..{

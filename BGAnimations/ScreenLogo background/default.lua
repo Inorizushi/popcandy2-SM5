@@ -22,7 +22,7 @@ t[#t+1] = Def.ActorFrame{
     OnCommand=function(self)
       local w = SCREEN_HEIGHT*1.333333 / self:GetWidth();
       local h = DISPLAY:GetDisplayHeight() / self:GetHeight();
-      self:customtexturerect(0,0,1,h);
+      self:customtexturerect(0,0,1,h/2);
       self:texcoordvelocity(0,-0.1);
     end;
   };
@@ -31,7 +31,7 @@ t[#t+1] = Def.ActorFrame{
     OnCommand=function(self)
       local w = SCREEN_HEIGHT*1.333333 / self:GetWidth();
       local h = DISPLAY:GetDisplayHeight() / self:GetHeight();
-      self:customtexturerect(0,0,1,h);
+      self:customtexturerect(0,0,1,h/2);
       self:texcoordvelocity(0,0.1);
     end;
   };
