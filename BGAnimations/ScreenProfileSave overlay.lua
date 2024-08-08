@@ -1,20 +1,44 @@
 local x = Def.ActorFrame{
-  LoadActor("stagetemp/loadingframe2")..{
-    InitCommand=cmd(xy,SCREEN_CENTER_X,SCREEN_CENTER_Y+60);
+  Def.Quad{
+    InitCommand=cmd(FullScreen;diffuse,color("0,0,0,1"));
   };
-  LoadActor("stagetemp/loadingframe1")..{
-    InitCommand=cmd(xy,SCREEN_CENTER_X,SCREEN_CENTER_Y-158);
+  LoadActor("stagetemp/loadf_0u")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y-128);
   };
-  LoadFont("_shared1")..{
-    Text="Saving...";
-    InitCommand=cmd(halign,0;valign,1;xy,SCREEN_LEFT+5,SCREEN_BOTTOM-10);
-    OnCommand=cmd(diffusealpha,0;smooth,0.2;diffusealpha,0.8;sleep,0.4;;);
-		OffCommand=cmd(smooth,0.3;diffusealpha,0;);
+  LoadActor("stagetemp/loadf_0d")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+128);
+  };
+  LoadActor("stagetemp/loadf_1u")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y-148);
+  };
+  LoadActor("stagetemp/loadf_1d")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+148);
+  };
+  LoadActor("stagetemp/loadf_3u")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y-208);
+  };
+  LoadActor("stagetemp/loadf_3d")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+208);
+  };
+  LoadActor("stagetemp/loadf_2u")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y-112);
+  };
+  LoadActor("stagetemp/loadf_2d")..{
+    InitCommand=cmd(CenterX;y,SCREEN_CENTER_Y+112);
+  };
+  LoadActor("stagetemp/box.txt")..{
+    InitCommand=cmd(effectmagnitude,0,100,0;CenterY;x,SCREEN_CENTER_X-136;z,16);
+  };
+  LoadActor("stagetemp/box.txt")..{
+    InitCommand=cmd(effectmagnitude,0,100,0;CenterY;x,SCREEN_CENTER_X+136;z,16);
+  };
+  LoadActor("stagetemp/loadf_4c")..{
+    InitCommand=cmd(Center;rainbow,true);
   };
 };
 
 x[#x+1] = Def.Actor {
-	BeginCommand=function(self)
+  BeginCommand=function(self)
 		if SCREENMAN:GetTopScreen():HaveProfileToSave() then self:sleep(1); end;
 		self:queuecommand("Load");
 	end;
